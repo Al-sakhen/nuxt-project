@@ -85,6 +85,8 @@ const {
         headers: {
             "Content-Type": "application/json",
         },
+        server: false,
+        lazy: true,
     },
 );
 

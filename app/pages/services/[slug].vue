@@ -25,6 +25,8 @@ const { data, error, status } = await useFetch<ServiceApiResponse>(
 		headers: {
 			"Content-Type": "application/json",
 		},
+		server: false,
+		lazy: true,
 	},
 );
 
