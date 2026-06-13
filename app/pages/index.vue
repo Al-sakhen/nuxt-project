@@ -93,10 +93,6 @@ const {
 const services = computed(() => servicesResponse.value?.services ?? []);
 
 const toServicePath = (slug: string) => `/services/${encodeURIComponent(slug)}`;
-
-console.log("Fetched services:", servicesResponse);
-console.log("Fetch status:", status.value);
-console.log("Fetch error:", error.value);
 </script>
 
 <template>

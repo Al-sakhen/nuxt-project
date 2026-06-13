@@ -19,7 +19,7 @@ const currentTrigger = ref("");
 <template>
     <NavigationMenuRoot
         v-model="currentTrigger"
-        class="relative z-[1] flex w-full justify-center"
+        class="relative z-[1] flex w-full justify-center mt-3"
     >
         <NavigationMenuList
             class="center m-0 flex list-none rounded-lg bg-white p-1 shadow-sm border"
