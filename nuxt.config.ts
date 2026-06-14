@@ -26,6 +26,7 @@ function isInstalledModule(moduleName: string) {
 
 const configuredModules = [
   '@nuxt/eslint',
+  '@nuxt/image',
   '@nuxt/ui',
   '@formkit/auto-animate',
   '@hebilicious/form-actions-nuxt',

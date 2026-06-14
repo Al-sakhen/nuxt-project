@@ -33,6 +33,8 @@ interface ServiceItem {
     alias_name_en: string;
     image: string;
     icon: string;
+    lang_title: string;
+    lang_description: string;
 }
 
 interface ServicesApiResponse {
@@ -79,14 +81,15 @@ const {
     refresh,
     status,
 } = await useFetch<ServicesApiResponse>(
-    "https://smart-zone.test/api/get-services",
+    "https://smartzone-jo.com/api/services",
     {
-        method: "GET",
+        method: "POST",
         headers: {
             "Content-Type": "application/json",
         },
-        server: false,
-        lazy: true,
+        body: JSON.stringify({ lang: "en" }),
+        /* server: false,
+        lazy: true, */
     },
 );
 
@@ -120,15 +123,6 @@ const toServicePath = (slug: string) => `/services/${encodeURIComponent(slug)}`;
             </section>
 
             <!-- -------------------- -->
-            <SliderRoot :default-value="[25, 75]">
-                <SliderTrack>
-                    <SliderRange />
-                </SliderTrack>
-                <SliderThumb />
-                <SliderThumb />
-            </SliderRoot>
-
-            <!-- -------------------- -->
             <!-- preview the cards into a responsive container and use the ui -->
             <div v-if="status === 'pending'">Loading ...</div>
             <div v-else-if="error" class="mt-10 text-sm text-error">
@@ -142,12 +136,19 @@ const toServicePath = (slug: string) => `/services/${encodeURIComponent(slug)}`;
                     class="rounded-lg bg-elevated/25 p-6"
                 >
                     <h3 class="text-lg font-semibold mb-2">
-                        {{ service.title_en }}
+                        {{ service.lang_title }}
                     </h3>
                     <div
                         class="text-sm text-white service-description"
-                        v-html="service.description_en"
+                        v-html="service.lang_description"
                     ></div>
+                    <div>
+                        <nuxt-img
+                            :src="service.image"
+                            alt="Service Image"
+                            class="mt-4 w-full h-48 object-cover rounded-lg"
+                        />
+                    </div>
                 </NuxtLink>
             </div>
         </UContainer>
