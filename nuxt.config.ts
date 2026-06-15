@@ -33,6 +33,7 @@ const configuredModules = [
   '@morev/vue-transitions',
   '@nuxtjs/i18n',
   '@nuxtjs/seo',
+  '@vercel/analytics',
   '@vercel/speed-insights',
   '@vesp/nuxt-fontawesome',
   'nuxt-aos',
